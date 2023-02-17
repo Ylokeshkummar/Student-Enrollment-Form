@@ -42,10 +42,7 @@ function resetForm() {
         $("#bdate").val("");
         $("#adress").val("");
         $("#edate").val("");
-        $("#rollno").prop("disabled", false);
-        $("#save").prop("disabled", true);
-        $("#change").prop("disabled", true);
-        $("#reset").prop("disabled", true);
+        $("#rollno").prop("disabled", false);     
         $("#rollno").focus();
         }
        
@@ -101,10 +98,10 @@ function resetForm() {
         return JSON.stringify(jsonStrObj);
         }
         
-        function getEmp(){
-            var empIdJsonObj=getEmpIdAsJsonObj();
-            alert(empIdJsonObj);
-            var getRequest=createGET_BY_KEYRequest(connToken,empDBName,empRelationName,empIdJsonObj);
+        function getStudent(){
+            var rollnoJsonObj=getEmpIdAsJsonObj();
+            alert(rollnoJsonObj);
+            var getRequest=createGET_BY_KEYRequest(connToken,empDBName,empRelationName,rollnoJsonObj);
             alert(getRequest);
             jQuery.ajaxSetup({async:false});
         var resJsonObj=executeCommandAtGivenBaseUrl(getRequest,jpdpBaseURL,jpdbIRL);
@@ -156,7 +153,6 @@ function resetForm() {
         jQuery.ajaxSetup({async:true});
         console.log(resJsonObj);
         resetForm();
-        $("#rollno").focus();
         }
     function getEmpIdAsJsonObj(){
             var rollno=$("#rollno").val();
